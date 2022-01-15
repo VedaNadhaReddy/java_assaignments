@@ -1,74 +1,26 @@
-package Java_assignments;
+package Java_assignments1;
 
+import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Email_Validation {
-	static String [] dataBase= {"vedanadhareddy123@gmail.com", "vedareddy500@gmail.com","vedanadhareddy199@gmail.com", "vedanadhareddy143@gmail.com"};
-
-
 	public static void main(String[] args) {
-        Scanner inp= new Scanner(System.in);
-        String emailID;
-		while (true){
-	     System.out.println("---- Please Enter your email ID--- ");
-	     emailID = inp.next();
-	     while(VerfiyFormate(emailID))
-	     {
-		     System.out.println("---- Please Enter your email ID with valid formate ex: eamaple@domain.com --- ");
-		     emailID = inp.next();
-	     }
-
-	     VerfiyID(emailID);
-
-
-	     System.out.println("");
-
-		}
-
+		          Scanner sc = new Scanner(System.in); 
+		          System.out.print("Enter  email_ID: ");  
+		          String e = sc.nextLine();  
+		          sc.close();
+		          ArrayList<String> arr=new ArrayList<String>();   
+			      arr.add("vedanadhareddy123@gmail.com");
+			      arr.add("vedareddy500@gmail.com");
+			      arr.add("dharani@gmail.com");
+			      arr.add("karna@gamail.com");
+			      arr.add("venu@gamial.com");
+			      if (arr.contains(e)){
+			    	System.out.println("Valid Email_ID");
+			       }
+			      else {
+			    		System.out.println("Unvalid Email_ID");
+			       }
 	}
-
-	private static void VerfiyID(String ID)
-	{
-		boolean accessFlag= false;
-	     for(String id : dataBase)
-	     {
-	    	 if(ID.equalsIgnoreCase(id))
-	    	 {
-	    		 accessFlag=true;
-		    	 System.out.println(ID );
-	    		 break;
-	    	 }   	 
-
-	     }
-
-	     if(accessFlag==false)
-	     {
-	    	 System.out.println( ID );
-
-	     }
-
-
-	}
-
-	private static boolean VerfiyFormate(String ID)
-	{
-		String regex = "^[A-Za-z0-9+_.-]+@(.+)$";
-
-		Pattern pattern = Pattern.compile(regex);
-	    Matcher matcher = pattern.matcher(ID);
-
-		if(!matcher.matches())
-		{
-			return true;
-
-		}else 
-		{
-			return false;
-
-		}
-
-	}
-
 }
+
